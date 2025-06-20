@@ -9,8 +9,8 @@ const bot = new TelegramBot(process.env['TELEGRAM-TOKEN'], {webHook: true});
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const webhookPath = `/webhook/${process.env.TELEGRAM_TOKEN}`;
-const webhookUrl = `${process.env.WEBHOOK_URL}${webhookPath}`;
+const webhookPath = `/webhook/${process.env['TELEGRAM_TOKEN']}`;
+const webhookUrl = `${process.env['WEBHOOK_URL']}${webhookPath}`;
 
 bot.setWebHook(webhookUrl)
     .then(() => console.log('webhook set:', webhookUrl))
