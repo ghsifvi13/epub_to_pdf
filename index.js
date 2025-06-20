@@ -4,6 +4,7 @@ const CloudConvert = require('cloudconvert');
 const fs = require('fs');
 const fetch = require('node-fetch');
 const path = require('path');
+const axios = require('axios');
 
 const bot = new TelegramBot(process.env['TELEGRAM_TOKEN'], {webHook: true});
 
@@ -88,10 +89,12 @@ async function convertEpubToPdf(fileUrl, fileName, chatId) {
     const exportTask = job.tasks.filter(task => task.name === 'export-file')[0];
     const downloadUrl = exportTask.result.files[0].url;
     
-    // Download converted PDF
-    const response = await fetch(downloadUrl);
-    const buffer = await response.buffer();
-    
+    // // Download converted PDF
+    // const response = await fetch(downloadUrl);
+    // const buffer = await response.buffer();
+    const response = await axios.get(downloadUrl, { responseType: 'arraybuffer'});
+    const buffer = Buffer.from(response.data);
+
     // Save temporarily
     const pdfFileName = fileName.replace('.epub', '.pdf');
     const tempPdfPath = `./temp/${Date.now()}_${pdfFileName}`;
