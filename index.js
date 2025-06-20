@@ -5,7 +5,7 @@ const fs = require('fs');
 const fetch = require('node-fetch');
 const path = require('path');
 
-const bot = new TelegramBot(process.env['TELEGRAM-TOKEN'], {webHook: true});
+const bot = new TelegramBot(process.env['TELEGRAM_TOKEN'], {webHook: true});
 const app = express();
 const PORT = process.env.PORT || 3000;
 
