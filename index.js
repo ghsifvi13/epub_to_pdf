@@ -2,7 +2,6 @@ const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
 const CloudConvert = require('cloudconvert');
 const fs = require('fs');
-const fetch = require('node-fetch');
 const path = require('path');
 const axios = require('axios');
 
