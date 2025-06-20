@@ -135,7 +135,7 @@ app.get('/', (req, res) => {
 
 // Set webhook
 const setWebHook = async () => {
-  const webhookUrl1 = `https://telegram-bot-njr1.onrender.com/webhook/${process.env['TELEGRAM-TOKEN']}`;
+  const webhookUrl1 = `https://epub-to-pdf.onrender.com/webhook/${process.env['TELEGRAM-TOKEN']}`;
   
   try {
     await bot.setWebHook(webhookUrl1);
