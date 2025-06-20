@@ -7,7 +7,7 @@ const path = require('path');
 
 const bot = new TelegramBot(process.env['TELEGRAM_TOKEN'], {webHook: true});
 
-const cloudConvert = new CloudConvert(process.env['CLOUD-CONVERT-TOKEN']);
+const cloudConvert = new CloudConvert(process.env['CLOUD_TOKEN']);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
